@@ -1,4 +1,4 @@
 class Item < ApplicationRecord
 
-  belongs_to :cart_items, dependent: :destroy
+  belongs_to :cart_item, dependent: :destroy
 end
