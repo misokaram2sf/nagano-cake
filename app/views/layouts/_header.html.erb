@@ -1,0 +1,34 @@
+<header>
+    <nav>
+        <!--ロゴ-->
+        <li></li>
+        
+        <!--customerログイン時、ようこそ○○さん！-->
+        <li></li>
+        
+        <% if customer_sign_in? %>
+        <!--customerログイン時-->
+          <li>マイページ</li>
+          <li>商品一覧</li>
+          <li>カート</li>
+          <li>ログアウト</li>
+        
+        <% elsif admin_sign_in? %>
+        <!--adminログイン時-->
+          <li>商品一覧</li>
+          <li>会員一覧</li>
+          <li>注文履歴一覧</li>
+          <li>ジャンル一覧</li>
+          <li>ログアウト</li>
+        
+        <% else %>
+        <!--未ログイン時-->
+          <li>About</li>
+          <li>商品一覧</li>
+          <li>新規登録</li>
+          <li>ログイン</li>
+        
+        <% end %>
+        
+    </nav>
+</header>
