@@ -1,18 +1,21 @@
 class Public::CartItemsController < ApplicationController
+    before_action :authenticate_customer!
+    before_action :
     
     def index
-    end
-    
-    def update
-    end
-    
-    def destroy
-    end
-    
-    def destroy_all
+        @cart_items = current_customer.cart_item
     end
     
     def create
+    end
+    
+    def 
+    end
+    
+    def 
+    end
+    
+    def 
     end    
     
 end

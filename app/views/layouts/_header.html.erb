@@ -22,25 +22,70 @@
           <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <!--customerログイン時-->
-              <li>マイページ</li>
-              <li>商品一覧</li>
-              <li>カート</li>
-              <li>ログアウト</li>
+              <li>
+                <%= link_to customers_mypage_path, class: 'nav-link dark' do %>
+                 マイページ
+                <% end %> 
+              </li>
+              
+              <li>
+                <%= link_to items_path, class: 'nav-link dark' do %>
+                  商品一覧
+                <% end %>  
+                </li>
+              
+              <li>
+                <%= link_to cart_items_path, class: 'nav-link dark' do %>  
+                  カート
+                <% end %>
+              </li>
+              
+              <li>
+                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' do %>
+                  ログアウト
+                <% end %>  
+              </li>
             
             <% elsif admin_signed_in? %>
             <!--adminログイン時-->
-              <li>商品一覧</li>
-              <li>会員一覧</li>
+              <li>
+                <%= link_to admin_items_path, class: 'nav-link dark' do %>
+                  商品一覧
+                <% end %>  
+              </li>
+              
+              <li>
+                <%= link_to customers_mypage_path, class: 'nav-link dark' do %>
+                会員一覧</li>
               <li>注文履歴一覧</li>
               <li>ジャンル一覧</li>
               <li>ログアウト</li>
             
             <% else %>
             <!--未ログイン時-->
-              <li>About</li>
-              <li>商品一覧</li>
-              <li>新規登録</li>
-              <li>ログイン</li>
+              <li>
+                <%= link_to about_path, class: 'nav-link text-dark' do %>
+                  About
+                <% end %>
+              </li>
+              
+              <li>
+                <%= link_to items_path, class: 'nav-link text-dark' do %>
+                  商品一覧
+                <% end %>  
+              </li>
+              
+              <li>
+                <%= link_to new_customer_registration_path, class: 'nav-link text-dark' do %>
+                  新規登録
+                <% end %>
+              </li>
+              
+              <li>
+                <%= link_to new_customer_session_path, class: 'nav-link text-dark' do %>
+                  ログイン
+                <% end %>
+              </li>
             
             <% end %>
           </ul>
