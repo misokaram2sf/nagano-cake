@@ -1,30 +1,30 @@
 <h4>商品新規登録</h4>
-<%= form_with model: @item do |f| %>
+<%= form_with model: @item, url: admin_items_path do |f| %>
   <table>
     <tr>
       <td>商品画像</td>
-      <td><%= f.file_field :image, accept: "image/*" %></td>
+      <!--<td><%= f.file_field :image, accept: "image/*" %></td>-->
     </tr>
     <tr>
       <td>商品名</td>
-      <td><%= f.text_field :name placeholder="商品名" %></td>
+      <td><%= f.text_field :name, :placeholder=>"商品名" %></td>
     </tr>
-  
+
     <tr>
       <td>商品説明</td>
-      <td><%= f.text_area :introduction placeholder="ここに説明文を記述します" %></td>
+      <td><%= f.text_area :introduction, :placeholder=>"ここに説明文を記述します" %></td>
     </tr>
-  
+
     <tr>
       <td>ジャンル</td>
-      <td></td>
+      <td><%= f.collection_select :genre_id, Genre.all, :id, :name %></td>
     </tr>
-  
+
     <tr>
       <td>税抜価格</td>
-      <td><%= f.text_field :price placeholder="1000" %></td>
+      <td><%= f.number_field :price, :placeholder=>"1000" %>円</td>
     </tr>
-  
+
     <tr>
       <td>販売ステータス</td>
       <td>
@@ -36,8 +36,8 @@
         <%= f.label :is_active, "販売停止中" %><br />
       </td>
     </tr>
-    
+
     <%= f.submit '新規登録' %>
-  
+
   </table>
 <% end %>
