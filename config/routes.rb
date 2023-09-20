@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #顧客用
   devise_for :customers, skip: [:passwords], controllers:{
     registrations: "public/registrations",
-    sesisons: 'public/sessions'
+    sessions: 'public/sessions'
   }
 
   #管理者用
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   #管理者用
   namespace :admin do
-    get 'homes/top' => 'homes#top'
+    get '/' => 'homes#top'
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
