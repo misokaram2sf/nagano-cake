@@ -11,5 +11,10 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   
+  #顧客用
+  
+  
+  #管理者用
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
