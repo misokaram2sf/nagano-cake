@@ -1,34 +1,53 @@
 <header>
-    <nav>
+    <nav class="navbar navbar-expand-lg navbar-dark dg-dark">
+      <div class="container">
         <!--ロゴ-->
-        <li></li>
+        <a class="navbar-brand"><%= image_tag 'logo.png', size:"50x50" %></a>
+        
+        <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
         
         <!--customerログイン時、ようこそ○○さん！-->
-        <li></li>
-        
-        <% if customer_sign_in? %>
-        <!--customerログイン時-->
-          <li>マイページ</li>
-          <li>商品一覧</li>
-          <li>カート</li>
-          <li>ログアウト</li>
-        
-        <% elsif admin_sign_in? %>
-        <!--adminログイン時-->
-          <li>商品一覧</li>
-          <li>会員一覧</li>
-          <li>注文履歴一覧</li>
-          <li>ジャンル一覧</li>
-          <li>ログアウト</li>
-        
+        <% if customer_signed_in? %>
+        <a>ようこそ、さん！<a>
+          
         <% else %>
-        <!--未ログイン時-->
-          <li>About</li>
-          <li>商品一覧</li>
-          <li>新規登録</li>
-          <li>ログイン</li>
-        
+        <a></a>
         <% end %>
         
+        
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% if customer_signed_in? %>
+            <!--customerログイン時-->
+              <li>マイページ</li>
+              <li>商品一覧</li>
+              <li>カート</li>
+              <li>ログアウト</li>
+            
+            <% elsif admin_signed_in? %>
+            <!--adminログイン時-->
+              <li>商品一覧</li>
+              <li>会員一覧</li>
+              <li>注文履歴一覧</li>
+              <li>ジャンル一覧</li>
+              <li>ログアウト</li>
+            
+            <% else %>
+            <!--未ログイン時-->
+              <li>About</li>
+              <li>商品一覧</li>
+              <li>新規登録</li>
+              <li>ログイン</li>
+            
+            <% end %>
+          </ul>
+        </div>
+      
+      </div>  
     </nav>
+    
+    
 </header>
