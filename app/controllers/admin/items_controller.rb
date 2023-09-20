@@ -2,11 +2,11 @@ class Admin::ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    @genres = Grenre.all
   end
 
   def new
     @item = Item.new
+    @genres = Grenre.all
   end
 
   def create
