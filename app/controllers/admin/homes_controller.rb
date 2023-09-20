@@ -5,6 +5,7 @@ class Admin::HomesController < ApplicationController
   end
 
   def about
-
   end
+
+
 end
