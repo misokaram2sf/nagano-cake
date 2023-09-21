@@ -14,11 +14,19 @@
   <%= @items.each do |item| %>
     <tr>
       <td><%= item.id %></td>
-      <td><%= item.name %></td>
+      <td><%= link_to item.name, admin_item_path(item.id) %></td>
       <td><%= item.price.to_s(:delimited) %></td>
       <td><%= item.genre_id %></td>
       <td></td>
-      <td></td>
+      <td>
+        <% if item.is_active %>
+          <span class="text-success">販売中</span>
+        <% else %>
+          <span class="text-secondary">販売停止中</span>
+        <% end %>
+      </td>
     </tr>
+  <% end %>
+</table>
 
- </table>
+<%= paginate items %>
