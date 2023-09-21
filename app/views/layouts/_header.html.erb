@@ -3,21 +3,21 @@
       <div class="container">
         <!--ロゴ-->
         <a class="navbar-brand"><%= image_tag 'logo.png', size:"50x50" %></a>
-        
+
         <button class="navbar-toggler" type="button" date-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        
-        
+
+
         <!--customerログイン時、ようこそ○○さん！-->
         <% if customer_signed_in? %>
         <a>ようこそ、さん！<a>
-          
+
         <% else %>
         <a></a>
         <% end %>
-        
-        
+
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
@@ -25,59 +25,59 @@
               <li>
                 <%= link_to customers_mypage_path, class: 'nav-link dark' do %>
                  マイページ
-                <% end %> 
+                <% end %>
               </li>
-              
+
               <li>
                 <%= link_to items_path, class: 'nav-link dark' do %>
                   商品一覧
-                <% end %>  
+                <% end %>
                 </li>
-              
+
               <li>
-                <%= link_to cart_items_path, class: 'nav-link dark' do %>  
+                <%= link_to cart_items_path, class: 'nav-link dark' do %>
                   カート
                 <% end %>
               </li>
-              
+
               <li>
                 <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' do %>
                   ログアウト
-                <% end %>  
+                <% end %>
               </li>
-            
+
             <% elsif admin_signed_in? %>
             <!--adminログイン時-->
               <li>
-                <%= link_to admin_items_path, class: 'nav-link dark' do %>
+                <%= link_to admin_items_path, class: 'nav-link text-dark' do %>
                   商品一覧
-                <% end %>  
+                <% end %>
               </li>
-              
+
               <li>
-                <%= link_to admin_customers_path, class: 'nav-link dark' do %>
+                <%= link_to admin_customers_path, class: 'nav-link text-dark' do %>
                   会員一覧
                 <% end %>
               </li>
-              
+
               <li>
-                <%= link_to admin_homes_top_path, class: 'nav-link dark' do %>
+                <%= link_to admin_path, class: 'nav-link text-dark' do %>
                  注文履歴一覧
                 <% end %>
               </li>
-              
+
               <li>
-                <%= link_to admin_genres_path, class: 'nav-link dark' do %>
+                <%= link_to admin_genres_path, class: 'nav-link text-dark' do %>
                   ジャンル一覧
-                <% end %>  
+                <% end %>
               </li>
-              
+
               <li>
-                <% link_to destroy_admin_session_path, method: :delete, class: 'nav-link dark' do %>
+                <% link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
                   ログアウト
                 <% end %>
               </li>
-            
+
             <% else %>
             <!--未ログイン時-->
               <li>
@@ -85,31 +85,31 @@
                   About
                 <% end %>
               </li>
-              
+
               <li>
                 <%= link_to items_path, class: 'nav-link text-dark' do %>
                   商品一覧
-                <% end %>  
+                <% end %>
               </li>
-              
+
               <li>
                 <%= link_to new_customer_registration_path, class: 'nav-link text-dark' do %>
                   新規登録
                 <% end %>
               </li>
-              
+
               <li>
                 <%= link_to new_customer_session_path, class: 'nav-link text-dark' do %>
                   ログイン
                 <% end %>
               </li>
-            
+
             <% end %>
           </ul>
         </div>
-      
-      </div>  
+
+      </div>
     </nav>
-    
-    
+
+
 </header>
