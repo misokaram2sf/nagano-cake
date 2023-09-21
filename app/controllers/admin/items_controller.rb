@@ -1,8 +1,9 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @items = Item.all
-    @genres = Grenre.all
+    @genres = Genre.all
   end
 
   def new
