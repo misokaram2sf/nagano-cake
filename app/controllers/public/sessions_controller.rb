@@ -9,9 +9,9 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+   def create
+     super
+   end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -24,4 +24,20 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+   protected
+
+
+
+
+  def
+    after_sign_in_path_for(resource)
+    root_path
+  end
+
+  def
+    after_sign_out_path_for(resource)
+    root_path
+  end
+
 end
