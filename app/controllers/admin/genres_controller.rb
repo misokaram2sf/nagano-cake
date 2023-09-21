@@ -13,6 +13,7 @@ class Admin::GenresController < ApplicationController
       flash[:notice] = "ジャンルの登録に成功しました。"
       redirect_to request.referer
     else
+      @genres = Genre.all
       flash.now[:notice] = "ジャンルの登録に失敗しました。"
       render 'index'
     end
