@@ -1,7 +1,7 @@
 <div class="card-list-container py-5">
   <% @items.each do |item| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to post_item_path(item.id) do %>
+    <%= link_to item_path(item.id) do %>
       <%= image_tag item.get_image, class:"card-img-top"; %>
       <%= item.name %>
       <%= @item.with_tax_price.to_s(:delimited) %>
