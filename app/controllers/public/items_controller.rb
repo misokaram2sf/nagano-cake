@@ -3,7 +3,7 @@ class Public::ItemsController < ApplicationController
 
   
   def index 
-    @items = Item.all.page(params[:page])
+     @items = Item.all.page(params[:page])
      @item = Item.new
      @items = Item.all
      @images = Item.all
@@ -16,17 +16,7 @@ class Public::ItemsController < ApplicationController
 
   def create
      @item = Item.new(item_params)
-
     
-  def show
-      @cart_item_new = CartItem.new
-  end    
-      
-      
-    
-    
-
-
     if @item.save
     redirect_to admin_item_path(@item.id), notice: "Item was successfully created."
     else
@@ -40,6 +30,7 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item =Item.new
     # @image = Image.find(params[:id])
+    @cart_item_new = CartItem.new
   end
 
   def edit
