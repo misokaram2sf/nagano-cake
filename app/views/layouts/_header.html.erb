@@ -23,19 +23,19 @@
             <% if customer_signed_in? %>
             <!--customerログイン時-->
               <li>
-                <%= link_to customers_mypage_path, class: 'nav-link dark' do %>
+                <%= link_to customers_mypage_path, class: 'nav-link text-dark' do %>
                  マイページ
                 <% end %>
               </li>
 
               <li>
-                <%= link_to items_path, class: 'nav-link dark' do %>
+                <%= link_to items_path, class: 'nav-link text-dark' do %>
                   商品一覧
                 <% end %>
                 </li>
 
               <li>
-                <%= link_to cart_items_path, class: 'nav-link dark' do %>
+                <%= link_to cart_items_path, class: 'nav-link text-dark' do %>
                   カート
                 <% end %>
               </li>
