@@ -16,9 +16,9 @@
 </div>
 
 <!--数量選択-->
-<%= form_with model:@item_new, local:true do |f| %>
+<%= form_with model:@cart_item_new, local:true do |f| %>
   <%= f.hidden_field :item_id, value: @item.id %>
   <%= f.select :amount, *[1..10] %>
+  <%= f.submit "カートに入れる" %>
 <% end %>
-
 
