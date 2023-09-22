@@ -1,5 +1,7 @@
 <h4>商品一覧</h4>
 
+<%= link_to "＋", new_admin_item_path %>
+
 <table>
 
   <tr>
@@ -11,12 +13,12 @@
     <th>ステータス</th>
   </tr>
 
-  <%= @items.each do |item| %>
+  <% @items.each do |item| %>
     <tr>
       <td><%= item.id %></td>
       <td><%= link_to item.name, admin_item_path(item.id) %></td>
       <td><%= item.price.to_s(:delimited) %></td>
-      <td><%= item.genre_id %></td>
+      <td><%= item.genre.name %></td>
       <td></td>
       <td>
         <% if item.is_active %>
@@ -29,4 +31,4 @@
   <% end %>
 </table>
 
-<%= paginate items %>
+<%= paginate @items %>

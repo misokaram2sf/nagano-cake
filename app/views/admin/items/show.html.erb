@@ -1,5 +1,7 @@
 <h4>商品詳細</h4>
 
+<%= image_tag @item.get_image, class:"card-img-top"; %>
+
 <table>
 
   <tr>
@@ -14,20 +16,20 @@
 
    <tr>
     <td>ジャンル</td>
-    <td><%= @item.genre_id %></td>
+    <td><%= @item.genre.name %></td>
   </tr>
 
    <tr>
     <td>税込価格<br>(税抜価格)</td>
     <td>
-      <%= with_tax_price.to_s(:delimited) %>(<%= @item.price.to_s(:delimited) %>)円
+      <%= @item.with_tax_price.to_s(:delimited) %>(<%= @item.price.to_s(:delimited) %>)円
     </td>
   </tr>
 
    <tr>
     <td>販売ステータス</td>
     <td>
-      <% if item.is_active %>
+      <% if @item.is_active %>
         <span class="text-success">販売中</span>
       <% else %>
         <span class="text-secondary">販売停止中</span>
@@ -37,4 +39,4 @@
 
 </table>
 
-<%= link_to '編集する' edit_admin_item _path(@item) %>
+<%= link_to '編集する', edit_admin_item_path(@item) %>
