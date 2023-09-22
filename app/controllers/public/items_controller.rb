@@ -7,8 +7,12 @@ class Public::ItemsController < ApplicationController
   def show
    
     @cart_item_new = CartItem.new
+    
+    @item = Item.find(params[:id])
   end
   
+ 
+     
   
   
     
