@@ -1,6 +1,6 @@
 class Public::CartItemsController < ApplicationController
     before_action :authenticate_customer!
-    before_action :set_cart_item, only: [:update, :destroy, :destroy_all]
+    #before_action :set_cart_item, only: [:update, :destroy, :destroy_all]
     
     #カートアイテムインデックスページ
     def index
@@ -37,17 +37,7 @@ class Public::CartItemsController < ApplicationController
     def update
         cart_item = CartItem.find(params[:id])
         cart_item.update(cart_item_params)
-        redirect_back(fallback_location: cart_items_path)
-    end
-    
-    #小計を求める
-    def subtotal
-        item.with_tax_price * amount
-    end
-    
-    #消費税を求める
-    def with_tax_price
-        (price * 1.1).floor
+        redirect_back(fallback_location: root_path)
     end
     
     def destroy

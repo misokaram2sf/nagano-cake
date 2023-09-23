@@ -12,13 +12,13 @@
   <div class="row">
     <h5>お届け先</h5>
 
-    <%= f.label :, "ご自身の住所" %>
+    <%#= f.label :, "ご自身の住所" %>
 
 
     <%= f.label :address_id, "登録済住所から選択" %>
     <%= f.select :sddress_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
 
-    <%= f.label :, "新しいお届け先" %>
+    <%#= f.label :, "新しいお届け先" %>
     <%= form_with model: @order, url: public_order_path do |f| %>
       <table>
         <tr>
