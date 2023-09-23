@@ -3,11 +3,11 @@
   <div class="sidebar"></div>
   
   <div class="menu">
-    <div class="row">
+    <div class="row row-cols-4">
       <% @items.each do |item| %>
-      <div class="item card-list-container m-2 p-2" style="width: 18rem;">
+      <div class="item card-list-container col p-2" style="width: 18rem;">
         <%= link_to item_path(item.id) do %>
-          <%= image_tag item.get_image, size:"300x200", class: "card-img-top" %>
+          <%= image_tag item.get_image, size:"300x200", class: "card-img-top", style: "object-fit: contain;" %>
           <h6 class="card-title"><%= item.name %></h6>
           <p class="card-text"><%= item.with_tax_price.to_s(:delimited) %>円</p>
         <% end %>
