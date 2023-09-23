@@ -8,6 +8,8 @@
             <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm" => "商品を全て削除しますか?", class: "btn btn-danger" %>
         </div>
 
+        　
+
         　<table class="table table-borderd">
               <!--テーブルヘッダー-->
               <tr class="table-active">
@@ -20,12 +22,12 @@
 
               <!--カート内商品一覧-->
               <tr>
-                  <% @sun = 0%>
+                  <% @sun = 0 %>
                   <% @cart_items.each do |cart_item| %>
 
                   <td>
-                      <%#= image_tag @cart_item.item, :image, :fill, 300, 300, format: 'jpeg' %>
-                      <%= cart_item.item.name %>
+                      <%= image_tag cart_item.item.image, size: "100x70", style: "object-fit: cover;" %>
+                      <%= link_to '/items/(:id)' do %><%= cart_item.item.name %><% end %>
                   </td>
                   
                   <td><%= cart_item.item.with_tax_price.to_s(:delimited) %>円</td>
@@ -43,8 +45,10 @@
 
               </tr>
               <% @sun += cart_item.subtotal %>
-              <% end %>　
+              <% end %>
           </table>
+          
+          
 
           <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
           合計金額 <%= @sun.to_s(:delimited) %>円

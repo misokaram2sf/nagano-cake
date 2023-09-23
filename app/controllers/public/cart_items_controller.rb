@@ -4,7 +4,7 @@ class Public::CartItemsController < ApplicationController
     
     #カートアイテムインデックスページ
     def index
-        @cart_items = current_customer.cart_items
+        @cart_items = current_customer.cart_items.all
     end
     
     #カート内にアイテムを追加したとき
@@ -33,6 +33,8 @@ class Public::CartItemsController < ApplicationController
         end    
     end
     
+        
+    
     #数量を変更するアクション
     def update
         cart_item = CartItem.find(params[:id])
@@ -41,15 +43,15 @@ class Public::CartItemsController < ApplicationController
     end
     
     def destroy
-        cart_item = CartItem.find(params[:id])
-        cart_item.destroy
-        redirect_to cart_item_path
+        @cart_item = CartItem.find(params[:id])
+        @cart_item.destroy
+        redirect_to cart_items_path
     end    
     
     #カート内アイテム全消去
     def destroy_all
         CartItem.destroy_all
-        redirect_back(fallback_location: cart_items_path)
+        redirect_to cart_items_path
     end    
     
     private
