@@ -16,15 +16,30 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    @order = current_customer.orders.new(order_params)
-    @order.postal_code = current_customer.postal_code
-    @order.address = current_customer.address
-    @order.name = current_customer.last_name + current_customer.first_name
+    @order = Order.new(order_params)
+    if params[:order][:address_id] == "0"
+      @order.postal_code = current_customer.postal_code
+      @orer.address = current_customer.address
+      @order.name = current_customer.name
+    elsif params[:order][:address_id] == "1"
+      @order.postal_code = Address.find(params[:order][:address_id]).postal_code
+      @order.address = Address.find(params[:order][:address_id]).address
+      @order.name = Address.find(params[:order][:address_id]).name
+    elsif params[:order][:address_id] == "2"
+      @order.postal_code = params[:order][:postal_code]
+      @order.address = params[:order][:address]
+      @order.name = params[:order][:name]
+    end
+
+    if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
+      flash.now[:notice] = "正しい住所を入力してください。"
+      render :new
+    end
+
     @order.postage = 800
     @total_amount = 0
     @billing = 0
     @cart_items = current_customer.cart_items
-
   end
 
   def complete
@@ -32,7 +47,7 @@ class Public::OrdersController < ApplicationController
 
   def create
     cart_items = current_customer.cart_items.all
-    @order = current_customer.orders.new(params[:id])
+    @order = current_customer.orders.new(order_params)
     if @order.save
       cart_items.each do |cart_item|
         order_detail = OrderDetail.new
@@ -42,8 +57,8 @@ class Public::OrdersController < ApplicationController
         order_detail.unit_price = cart_item.item.price * 1.1
         order_detail.save
       end
-      redirect_to public_orders_complete_path
-      cart_item.destroy_all
+      redirect_to orders_complete_path
+      cart_items.destroy_all
     else
       @order = Order.new(order_params)
       render :new
@@ -57,4 +72,7 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:total_amount, :status, :postal_code, :address, :name, :postage, :payment_method)
   end
 
+  def address_params
+    params.require(:order).permit(:postal_code, :address, :name)
+  end
 end

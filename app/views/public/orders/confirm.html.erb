@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
+    <% @cart_items.each do |cart_item| %>
+    <div class="col-sm-8">
       <table class="table table-brdered">
         <thead>
           <tr>
@@ -11,14 +12,13 @@
           </tr>
         </thead>
         <tbody>
-          <% @cart_items.each do |cart_item| %>
           <%#= @total_amount = @total_amount + cart_item.subtotal %>
           <%#= @billing = @total_amount + @order.postage %>
           <tr>
             <td>
-              <%= image_tag cart_item.item.get_image, size: "15x10" %>
+              <%= image_tag cart_item.item.get_image, size: "50x35" %>
               <%= cart_item.item.name %>
-              </td>
+            </td>
             <td><%= (cart_item.item.price * 1.1).floor %></td>
             <td><%= cart_item.amount %></td>
             <td><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
@@ -42,26 +42,28 @@
           <td><%= @billing = @total_amount + @order.postage %></td>
         </tr>
       </table>
-      <% end %>
     </div>
+    <% end %>
   </div>
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-8">
       <h4>支払い方法</h4>
       <%= @order.payment_method_i18n %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-8">
       <h4>お届け先</h4>
-      <%= @order.address_display %>
+      <%= @order.postal_code %>
+      <%= @order.address %>
+      <%= @order.name %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-8">
       <%= form_with model: @order do |f| %>
 
         <%= f.hidden_field :name %>
