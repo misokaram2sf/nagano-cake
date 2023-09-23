@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
-  #bofore_action :authenticate_customer!
+  before_action :authenticate_customer!
+
   
   def index
   end
