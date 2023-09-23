@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-
+     @order = current_customer.orders.find(params[:id])
   end
 
   def new
