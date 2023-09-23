@@ -1,14 +1,16 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
 
-  
+
   def index
   end
 
   def show
+
   end
 
   def new
+    @order = Order.new
   end
 
   def comfirm
@@ -29,8 +31,8 @@ class Public::OrdersController < ApplicationController
 
   private
 
-  def porder_params
+  def order_params
     params.require(:order).permit(:total_amount, :status, :postal_code, :address, :name, :postage, :payment_method)
   end
-  
+
 end
