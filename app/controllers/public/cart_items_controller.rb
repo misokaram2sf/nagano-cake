@@ -4,7 +4,7 @@ class Public::CartItemsController < ApplicationController
     
     #カートアイテムインデックスページ
     def index
-        @cart_items = CartItem.all
+        @cart_items = current_customer.cart_items
     end
     
     #カート内にアイテムを追加したとき
