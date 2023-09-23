@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-  bofore_action :authenticate_customer!
+  #bofore_action :authenticate_customer!
   
   def index
   end
@@ -11,9 +11,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def comfirm
-    @order = Order.new
+    @order = Order.new(order_params)
+    @address = Address.find(params[:order][:address_id])
+    @order.postal_code = @address.postal_code
+    @order.address = @address.address
+    @order.name = @address.name
     @cart_items = CartItem.all
-    @item = Item.find(params[:id])
   end
 
   def complete
@@ -26,7 +29,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def porder_params
-    params.require(:order).permit(:total_amount, :status, :postalcode, :address, :name, :postage, :payment_method)
+    params.require(:order).permit(:total_amount, :status, :postal_code, :address, :name, :postage, :payment_method)
   end
   
 end
