@@ -21,7 +21,8 @@ class Public::OrdersController < ApplicationController
     @order.address = current_customer.address
     @order.name = current_customer.last_name + current_customer.first_name
     @order.postage = 800
-    
+    @total_amount = 0
+    @billing = 0
     @cart_items = current_customer.cart_items
 
   end
