@@ -13,8 +13,14 @@
        <%= form_with model:@cart_item_new, local:true do |f| %>
            <%= f.hidden_field :item_id, value: @item.id %>
            <%= f.select :amount, *[1..10] %>
-           <%= f.submit "カートに入れる", class: "btn btn-success" %>
        <% end %>
+       
+       <%= form_with model:@cart_item_new, url: "/cart_items", local:true do |f| %>
+         <%= f.submit "カートに入れる", class: "btn btn-success" %>
+       <% end %>
+
+       
+       
       </div>
       
     </div>

@@ -4,7 +4,7 @@ class Public::CartItemsController < ApplicationController
     
     #カートアイテムインデックスページ
     def index
-        @cart_items = current_customer.cart_items
+        @cart_items = current_customer.cart_items.all
     end
     
     #カート内にアイテムを追加したとき
@@ -32,6 +32,8 @@ class Public::CartItemsController < ApplicationController
             redirect_to cart_items_path
         end    
     end
+    
+        
     
     #数量を変更するアクション
     def update
