@@ -10,9 +10,15 @@ class Public::CustomersController < ApplicationController
 
     def update
       customer = current_customer
-      customer.update(customer_params)
+      if customer.update(customer_params)
+      flash[:notice] = "登録情報を変更しました"
       redirect_to customers_mypage_path
+      else
+        render :edit
+      end
     end
+    
+    
 
     private
 

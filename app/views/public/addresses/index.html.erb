@@ -3,51 +3,12 @@
 
 <!--配送先登録-->
 
-    <div>
-      <table>
-          <thead>
-          <tr>
-            <td class="col-lg-2"><!--登録するもの--><br></td>
-            <td class="col-lg-6"><!--入力欄--><br></td>
-            <td class="col-lg-1"><!--登録ボタン--><br></td>
-          </tr>    
-          </thead>
-          <tbody>
-              <%= form_with model: @address do |f| %>
-              <tr>
-                <td>郵便番号(ハイフンなし)</td>
-                <td><%= f.text_field :postal_code, class: "form-control col-lg-5", placeholder: "0000000" %> </td>
-                <td></td>
-              </tr>
-              
-              <tr>
-                <td>住所</td>
-                <td><%= f.text_field :address, class: "form-control ", placeholder: "東京都渋谷区〇〇〇◯" %></td>
-                <td></td>
-              </tr>
-              
-              <tr>
-                <td>宛名</td>
-                <td><%= f.text_field :name, class:"form-control col-lg-5", placeholder: "田中花子" %></td>
-                <td></td>
-              </tr>
-              
-              <tr>
-                <td></td>
-                <td></td>
-                <td><%= f.submit '新規登録', class: "btn btn-success" %></td>
-              </tr>
-              <% end %>
-          </tbody>
-      </table>
-    </div>
-
-
+    <%= render 'form', address: @address %>
 
 <!--配送先一覧-->
     <div>
-      <table>
-        <thead>
+      <table class="table table-borderd">
+        <thead class="bg-light">
           <tr>
             <th>郵便番号</th>
             <th>住所</th>
@@ -61,7 +22,10 @@
             <td><%= address.postal_code %></td>
             <td><%= address.address %></td>
             <td><%= address.name %></td>
-            <td></td>
+            <td>
+                <%= link_to "編集する", edit_address_path(address), class: "btn btn-success" %>
+                <%= link_to "削除する", address_path(address), method: :delete, "data-confirm" => "配送先を削除しますか?", class: "btn btn-danger" %>
+            </td>
           </tr>
           <% end %>
         </tbody>
