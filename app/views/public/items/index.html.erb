@@ -1,14 +1,32 @@
-<div class="card-list-container py-5">
-  <% @items.each do |item| %>
-  <div class="card w-50 mx-auto mt-4">
-    <%= link_to item_path(item.id) do %>
-      <%= image_tag item.get_image, size:"300x200" %>
-      </br><%= item.name %>
-      </br><%= item.with_tax_price.to_s(:delimited) %>
-
-    <% end %>
-
+<% @items.each do |item| %>
+<div class="card-list-container row">
+  <div class="card mx-auto row">
+    <div class="card-body">
+        <%= link_to item_path(item.id) do %>
+        <div class="col-10">
+          <%= image_tag item.get_image, size:"300x200" %>
+        </div>
+        <div class="col-10"> 
+          <p class="card-title"><%= item.name %><%= item.with_tax_price.to_s(:delimited) %>円</p>
+        </div>
+         <% end %>
+      </div>
+    </div>
   </div>
-  <% end %>
+</div>  
+<% end %>
+
+<main class="row">
+  <div class="sidebar"></div>
+  
+  <div class="menu">
+    <div class="row">
+      <div class="item">
+        
+      </div>
+    </div>
+  </div>
+</main>
+ 
   <%= paginate @items %>
-</div>
+
