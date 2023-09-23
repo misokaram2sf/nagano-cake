@@ -43,5 +43,10 @@ Rails.application.routes.draw do
 
   end
 
+ # 退会確認画面
+ get  '/customers/check' => 'customers#check'
+ # 論理削除用のルーティング
+ patch  '/customers/withdraw' => 'customers#withdraw'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
