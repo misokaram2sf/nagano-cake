@@ -51,7 +51,7 @@ class Public::CartItemsController < ApplicationController
     #カート内アイテム全消去
     def destroy_all
         CartItem.destroy_all
-        redirect_back(fallback_location: cart_items_path)
+        redirect_to cart_items_path
     end    
     
     private

@@ -9,11 +9,7 @@
         </div>
 
         　
-        　<% if @cart_items.empty? %>
-        　
-        　
-        　<% else %>
-        　
+
         　<table class="table table-borderd">
               <!--テーブルヘッダー-->
               <tr class="table-active">
@@ -26,7 +22,7 @@
 
               <!--カート内商品一覧-->
               <tr>
-                  <% @sun = 0%>
+                  <% @sun = 0 %>
                   <% @cart_items.each do |cart_item| %>
 
                   <td>
@@ -49,10 +45,10 @@
 
               </tr>
               <% @sun += cart_item.subtotal %>
-              <% end %>　
+              <% end %>
           </table>
           
-          <% end %>
+          
 
           <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
           合計金額 <%= @sun.to_s(:delimited) %>円
