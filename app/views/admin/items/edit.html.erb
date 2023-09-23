@@ -1,7 +1,5 @@
 <h4>商品編集</h4>
 
-<h4>商品新規登録</h4>
-
 <%= form_with model: @item, url: admin_item_path do |f| %>
   <table>
 
@@ -35,8 +33,6 @@
       <td>
         <%= f.radio_button :is_active, :true %>
         <%= f.label :is_active, "販売中" %>
-      </td>
-      <td>
         <%= f.radio_button :is_active, :false %>
         <%= f.label :is_active, "販売停止中" %>
       </td>
