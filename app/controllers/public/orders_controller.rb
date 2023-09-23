@@ -6,7 +6,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -20,7 +19,7 @@ class Public::OrdersController < ApplicationController
     @order.address = @address.address
     @order.name = @address.name
     @cart_items = CartItem.all
-    
+
   end
 
   def complete
