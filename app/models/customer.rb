@@ -13,8 +13,8 @@ class Customer < ApplicationRecord
   end
 
   #ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないようにする。
-  #def active_for_authentication?
-    #super && (is_deleteｄ == false)
-  #end
+  def active_for_authentication?
+    super && (is_active == false)
+  end
 
 end
