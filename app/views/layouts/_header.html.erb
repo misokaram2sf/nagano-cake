@@ -12,12 +12,12 @@
 
 
         <!--customerログイン時、ようこそ○○さん！-->
-        <%# if customer_signed_in? %>
-        <!--<a>ようこそ、<%#= current_customer.last_name %>さん！<a>-->
+        <% if customer_signed_in? %>
+        <a>ようこそ、<%= current_customer.last_name %>さん！<a>
 
-        <%# else %>
+        <% else %>
 
-        <%# end %>
+        <% end %>
 
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
