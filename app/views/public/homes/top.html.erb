@@ -1,34 +1,39 @@
-<main>
-  <p id="notice"></p>
-  <div class="container">
-  <div class="row">
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-      <h1>ようこそ <strong></strong>ながのCAKEへ</h1>
 
-      <p>このサイトは、ケーキ販売のECサイトになります。</p>
-      <p>会員でない方も商品の閲覧はできますが、</p>
-      <p>購入には会員登録が必要になります。</p>
-      <div class="btn-wrapper col-10 mx-auto">
-        <div class="row">
+<%= stylesheet_link_tag "/public/homes", :media => "all" %>
 
-      <h4>新着商品<h4>
-        <td><a class="navbar-brand"><%= image_tag '', size:"50x50" %></a></td>
-          <p>商品名<p>
-          <p>値段<p>
-        <p><a class="navbar-brand"><%= image_tag '', size:"50x50" %></a><p>
-         <p>商品名<p>
-          <p>値段<p>
-        <p><a class="navbar-brand"><%= image_tag '', size:"50x50" %></a><p>
-          <p>商品名<p>
-          <p>値段<p>
-        <p><a class="navbar-brand"><%= image_tag '', size:"50x50" %></a><p>
-          <p>商品名<p>
-          <p>値段<p>
-
-
+  <main>
+    <div class="container full">
+      <div class="">
+        <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6 text-light">
+        <h1>Welcom to <strong>Nagano Cake</strong></h1>
+        <p>このサイトは、ケーキ販売のECサイトになります。</p>
+        <p>会員でない方も商品の閲覧はできますが、</p>
+        <p>購入には会員登録が必要になります。</p>
         </div>
       </div>
+    </div>  
+  </main>      
+  
+  <div class="row col-12 mx-auto">
+    <div class="sidebar col-4 ">
+      
     </div>
-  </div>
-</div>
-</main>
+    
+        
+    <div class="new-items-aria col-7">
+      <h4 class="new-items-title">\New Items/</h4>
+      
+      <div class="new-items row row-cols-1 row-cols-lg-4 mx-auto p-2">
+      <% @new_items.each do |item| %>
+      <div class="item card-list-container col m-0.5" >
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.get_image, size:"200x150", class: "card-img-top", style: "object-fit: cover;" %>
+          <h6 class="card-title text-dark"><%= item.name %></h6>
+          <p class="card-text text-dark"><%= item.with_tax_price.to_s(:delimited) %>円</p>
+        <% end %>
+      </div>
+      <% end %>
+      </div>
+    </div>  
+  </div>  
+  

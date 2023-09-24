@@ -1,1 +1,9 @@
 @use '~bootstrap/scss/bootstrap';
+
+.full {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: url("../main-visual.jpg")
+    center / cover;
+}
