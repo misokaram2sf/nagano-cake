@@ -1,14 +1,12 @@
 <div class="container">
+  <h4>ジャンル一覧・追加</h4>
   <div class="row">
-    <div class="col-md-3">
-      <h4>ジャンル一覧・追加</h4>
-      <div>
-        <%= render 'layouts/errors', obj: @genre %>
-        <%= render 'new', genre: @genre %>
-      </div>
-      
-      
-      <table class="table">
+    <div class="col-lg-6 mt-3">
+      <%= render 'layouts/errors', obj: @genre %>
+      <%= render 'new', genre: @genre %>
+
+
+      <table class="table col-lg-6">
         <tr>
           <th>ジャンル</th>
           <th></th>

@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
 
   validates :name, presence: true
-  validates :postal_code, presence: true, numericality: {only_integer: true}, length: { is: 7 }
+  validates :postal_code, presence: true, numericality: true, length: { is: 7 }
   validates :address, presence: true
   validates :name, presence: true
 

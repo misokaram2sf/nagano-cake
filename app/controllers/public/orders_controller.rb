@@ -58,7 +58,7 @@ class Public::OrdersController < ApplicationController
         order_detail.unit_price = cart_item.item.price * 1.1
         order_detail.save
       end
-      redirect_to orders_complete_path
+      redirect_to complete_orders_path
       cart_items.destroy_all
     else
       @order = Order.new(order_params)
