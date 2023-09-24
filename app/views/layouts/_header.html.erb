@@ -8,7 +8,7 @@
 
         <!--customerログイン時、ようこそ○○さん！-->
         <% if customer_signed_in? %>
-        <a>ようこそ、<%= current_customer.last_name %>さん！<a>
+        <div class="log-in-message">ようこそ、<%= current_customer.last_name %>さん！</div>
 
         <% else %>
 
@@ -26,25 +26,25 @@
             <!--customerログイン時-->
               <li>
                 <%= link_to customers_mypage_path, class: 'nav-link text-dark' do %>
-                 マイページ
+                 My page
                 <% end %>
               </li>
 
               <li>
                 <%= link_to items_path, class: 'nav-link text-dark' do %>
-                  商品一覧
+                  Items
                 <% end %>
                 </li>
 
               <li>
                 <%= link_to cart_items_path, class: 'nav-link text-dark' do %>
-                  カート
+                  Cart
                 <% end %>
               </li>
 
               <li>
                 <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' do %>
-                  ログアウト
+                  Log out
                 <% end %>
               </li>
 
@@ -90,19 +90,19 @@
 
               <li>
                 <%= link_to items_path, class: 'nav-link text-dark' do %>
-                  商品一覧
+                  Items
                 <% end %>
               </li>
 
               <li>
                 <%= link_to new_customer_registration_path, class: 'nav-link text-dark' do %>
-                  新規登録
+                  Sign up
                 <% end %>
               </li>
 
               <li>
                 <%= link_to new_customer_session_path, class: 'nav-link text-dark' do %>
-                  ログイン
+                  Log in
                 <% end %>
               </li>
 
