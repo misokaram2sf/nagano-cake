@@ -12,7 +12,7 @@ class Admin::OrderDetailsController < ApplicationController
       flash[:notice] = "ステータスの変更がされました。"
     end
 
-    if @order_detail.all? { |order_detail| orde r_detail.make_status == "production_complete" }
+    if @order_detail.all? { |order_detail| order_detail.make_status == "production_complete" }
       @order.update(status: "preparing_delivery")
       flash[:notice] = "ステータスの変更がされました。"
     end
