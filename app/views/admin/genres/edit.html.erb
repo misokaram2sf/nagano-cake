@@ -2,7 +2,7 @@
   <div class="row">
     <h4>ジャンル編集</h4>
     <%= render 'layouts/errors', obj: @genre %>
-    <div class="col-md-3">
+    <div class="col-lg-3">
       <%= form_with model: @genre, url: admin_genre_path do |f| %>
         <%= f.label :ジャンル名 %>
         <%= f.text_field :name, placeholder: "ジャンル名" %>
