@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   has_many :cart_items, dependent: :destroy
   belongs_to :genre
-  
+
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
@@ -20,6 +20,10 @@ class Item < ApplicationRecord
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     image
+  end
+
+  def total_item_amount #アイテム合計金額
+   order_details.sum { |order_detail| order_detail.subtotal }
   end
 
 end
