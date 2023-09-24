@@ -8,6 +8,15 @@ class Customer < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :cart_items, dependent: :destroy
 
+
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
+  validates :phone_number, presence: true, numericality: {only_integer: true}
+  validates :postal_code, presence: true, numericality: {only_integer: true}, length: { is: 7 }
+  validates :address, presence: true
+
   def full_name
     last_name + '' + first_name
   end
