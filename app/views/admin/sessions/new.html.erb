@@ -3,18 +3,18 @@
 
   <div class="row">
     <%= form_with model: @admin, url: admin_session_path do |f| %>
-      <div class="field">
-        <%= f.label :メールアドレス %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field center-block">
+        <%= f.label :email, "メールアドレス", class: "col-10 my-2" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@example.com", class: "col-8" %>
       </div>
 
-      <div class="field">
-        <%= f.label :パスワード %>
-        <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="field center-block">
+        <%= f.label :password, "パスワード", class: "col-10 my-2" %>
+        <%= f.password_field :password, autocomplete: "current-password", width: "200px" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "ログイン", class: 'btn btn-sm btn-primary' %>
+      <div class="actions col-lg-2 mx-auto">
+        <%= f.submit "ログイン", class: "btn btn-sm btn-primary mx-auto my-3" %>
       </div>
     <% end %>
 
