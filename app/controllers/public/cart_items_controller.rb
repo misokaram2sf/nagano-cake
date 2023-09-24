@@ -50,7 +50,8 @@ class Public::CartItemsController < ApplicationController
     
     #カート内アイテム全消去
     def destroy_all
-        CartItem.destroy_all
+        #CartItem.destroy_all
+        current_customer.cart_items.destroy_all
         redirect_to cart_items_path
     end    
     
