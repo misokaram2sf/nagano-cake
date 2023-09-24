@@ -49,18 +49,16 @@
   </thead>
   
   <tbody>
-    <%= @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-    <% end %>
     <%= @order_details.each do |order_detail| %>
+      <tr>
+        <td><%= order_detail.item.name %></td>
         <td><%= order_detail.unit_price %></td>
         <td><%= oeder_detail.amount %></td>
+        <td><%= order_detail.unit_price.floor * order_detail.amount %></td>
         <td></td>
         <td></td>
-        <td></td>
-    <% end %>
       </tr>
+    　<% end %>
   </tbody>
 </table>
 
