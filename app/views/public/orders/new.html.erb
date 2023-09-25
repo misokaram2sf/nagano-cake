@@ -18,8 +18,8 @@
     <div class="row">
       <div class="col-lg-8 mx-5">
         <tr>
-          <%= f.radio_button :address_id, 0 %>
-          <%= f.label :address_id_0, "ご自身の住所" %>
+          <%= f.radio_button :select_address, 0 %>
+          <%= f.label :select_address_0, "ご自身の住所" %>
           <P class="col-lg-8 mx-5">
             <%= "〒" + current_customer.postal_code + " " + current_customer.address %>
             <%= current_customer.last_name + " " + current_customer.first_name %>
@@ -31,7 +31,8 @@
         <%= f.radio_button :address_id, 1 %>
         <%= f.label :address_id_1, "登録済住所から選択" %>
         <p class="col-lg-8 mx-5">
-          <%= f.select :address_id_1, options_from_collection_for_select(Address.all, :id, :address_display), prompt: "住所を選択してください", width: "200px" %>
+
+          <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :address_display), prompt: "住所を選択してください", width: "200px" %>
         </p>
       </div>
 

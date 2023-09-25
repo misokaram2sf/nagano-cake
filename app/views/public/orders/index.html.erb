@@ -19,13 +19,13 @@
                 <%= l order.created_at, format: :short %>
             </td>
             <td class="delivery-address">
-              〒<%= order.customer.post_code %><br>
+              〒<%= order.customer.postal_code %><br>
               <%= order.address %><br>
               <%= order.customer.full_name %>
             </td>
             <td>
-              <% order.order_items.each do |order_item| %>
-                <%= order_item.item.name %><br>
+              <% order.order_details.each do |order_detail| %>
+                <%= order_detail.item.name %>
               <% end %>
             </td>
             <td><%= order.total_amount.to_s(:delimited) %>円</td>
