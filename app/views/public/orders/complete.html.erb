@@ -1,8 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class=" col-lg-8 text-center">
-       <h1>注文が完了しました！</h1>
-       <p><%= link_to "注文一覧画面に戻る", orders_path, class: "btn btn-outline-dark text-right m-3" %></p>
+    <div class=" col-lg-10 mx-auto">
+      <div class="text-center">
+        <h1 class="my-5">注文ありがとうございます！</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-11 text-right my-5">
+      <%= link_to "注文一覧画面に戻る", orders_path, class: "btn btn-outline-dark btn-sm" %>
     </div>
   </div>
 </div>

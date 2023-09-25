@@ -3,6 +3,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    
   end
 
   def confirm
@@ -20,25 +21,19 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.full_name
     elsif params[:order][:select_address] == "1"
-      @order.postal_code = Address.find(params[:order][:address_id]).postal_code
-      @order.address = Address.find(params[:order][:address_id]).address
-      @order.name = Address.find(params[:order][:address_id]).name
+        @order.postal_code = Address.find(params[:order][:address_id]).postal_code
+        @order.address = Address.find(params[:order][:address_id]).address
+        @order.name = Address.find(params[:order][:address_id]).name
     elsif params[:order][:select_address] == "2"
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
-
     end
-
+    
     if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
       flash.now[:notice] = "正しい住所を入力してください。"
       render :new
       
-    end
-
-    if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
-      flash.now[:notice] = "正しい住所を入力してください。"
-      render :new
     end
   end
 
