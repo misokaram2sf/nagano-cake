@@ -27,11 +27,10 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
-    end
-
-    if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
-      flash.now[:notice] = "正しい住所を入力してください。"
-      render :new
+      if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
+        flash.now[:notice] = "正しい住所を入力してください。"
+        render :new
+      end
     end
   end
 
