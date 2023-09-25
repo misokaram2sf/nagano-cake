@@ -1,6 +1,7 @@
 <div class="container">
   <h4><%= @customer.full_name %>さんの会員情報編集</h4>
   <div class="row">
+    <%= render 'layouts/errors', obj: @customer %>
     <div class="col-lg-8 mx-auto">
       <%= form_with model: @customer, url: admin_customer_path do |f| %>
         <table class="table table-borderless">
