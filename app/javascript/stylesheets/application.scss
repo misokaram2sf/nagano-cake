@@ -21,3 +21,26 @@
 .red{
   color: red;
 }
+
+.about-title{
+  font-family: 'Major Mono Display', monospace;
+  color:#ffc0cb;
+}
+
+.about-visual{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../images/about.jpg');
+  background-size: cover;
+  
+}
+
+.about-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;  bottom: 0;
+  left: 0;  right: 0;
+  background-color: #8d6449;
+  opacity: 0.4;
+}
