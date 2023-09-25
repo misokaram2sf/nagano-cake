@@ -1,20 +1,20 @@
 
-<main class="row justify-content-center">
-  <div class="sidebar">
+<main class="row justify-content-center col-12 mx-auto">
+  <div class="sidebar col-4">
     
     <%#= render "genre", genre: @genres %>
     
   </div>
   
-  <div class="menu">
+  <div class="menu col-7">
     <h4>商品一覧（全<%= @items.all.count %>件）</h4>
     <div class="row row-cols-1 row-cols-lg-4 mx-auto p-2">
       <% @items.each do |item| %>
       <div class="item card-list-container col m-0.5" >
         <%= link_to item_path(item.id) do %>
           <%= image_tag item.get_image, size:"200x150", class: "card-img-top", style: "object-fit: cover;" %>
-          <h6 class="card-title"><%= item.name %></h6>
-          <p class="card-text"><%= item.with_tax_price.to_s(:delimited) %>円</p>
+          <h6 class="card-title text-dark"><%= item.name %></h6>
+          <p class="card-text text-dark"><%= item.with_tax_price.to_s(:delimited) %>円</p>
         <% end %>
       </div>
       <% end %>

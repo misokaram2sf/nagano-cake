@@ -1,9 +1,23 @@
 @use '~bootstrap/scss/bootstrap';
+/*@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&family=Zen+Maru+Gothic:wght@300&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=M+PLUS+Rounded+1c:wght@300&family=Major+Mono+Display&family=Zen+Kurenaido&family=Zen+Maru+Gothic:wght@300&display=swap');
 
-.full {
+.container-fluid.full {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  background: url("/app/assets/images/main-visual.jpg")
-    center / cover;
+  min-height: 60vh;
+  background-image: url('../images/main-visual.jpg');
+  background-size: cover;
+}
+
+/*.main-visual-text{
+  font-family: 'Zen Kurenaido';
+}*/
+
+.shop-name{
+  font-family: 'Major Mono Display', monospace;
+}
+
+.red{
+  color: red;
 }
