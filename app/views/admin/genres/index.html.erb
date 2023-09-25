@@ -1,12 +1,15 @@
 <div class="container">
   <h4>ジャンル一覧・追加</h4>
   <div class="row">
-    <div class="col-lg-8 mt-3">
+    <div class="col-lg-12 mt-3">
       <%= render 'layouts/errors', obj: @genre %>
       <%= render 'new', genre: @genre %>
+    </div>
+  </div>
 
-
-      <table class="table col-lg-6">
+  <div class="row">
+    <div class="col-lg-6 mt-3">
+      <table class="table table-hover table-inverse my-3">
         <tr>
           <th>ジャンル</th>
           <th></th>
