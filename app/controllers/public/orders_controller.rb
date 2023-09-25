@@ -51,8 +51,8 @@ class Public::OrdersController < ApplicationController
         order_detail.unit_price = (cart_item.item.price * 1.1).floor
         order_detail.save
       end
-      redirect_to orders_complete_path
       cart_items.destroy_all
+      redirect_to orders_complete_path
     else
       flash.now[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
       render :new
