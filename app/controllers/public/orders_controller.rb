@@ -35,9 +35,6 @@ class Public::OrdersController < ApplicationController
     end
   end
 
-  def complete
-  end
-
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
@@ -57,6 +54,9 @@ class Public::OrdersController < ApplicationController
       flash.now[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
       render :new
     end
+  end
+
+  def complete
   end
 
   def index
