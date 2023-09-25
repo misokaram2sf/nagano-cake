@@ -1,23 +1,22 @@
 <div class="container">
   <h4>管理者ログイン</h4>
-
   <div class="row">
-    <%= form_with model: @admin, url: admin_session_path do |f| %>
-      <div class="field center-block">
-        <%= f.label :email, "メールアドレス", class: "col-10 my-2" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@example.com", class: "" %>
-      </div>
+    <div class="col-lg-8 mx-auto">
+      <%= form_with model: @admin, url: admin_session_path do |f| %>
+        <div class="field">
+          <%= f.label :email, "メールアドレス", class: "col-10 my-2" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@example.com", class: "" %>
+        </div>
+        <div class="field">
+          <%= f.label :password, "パスワード", class: "col-10 my-2" %>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "ログイン", class: "btn btn-sm btn-primary mx-auto my-3" %>
+        </div>
+      <% end %>
 
-      <div class="field center-block">
-        <%= f.label :password, "パスワード", class: "col-10 my-2" %>
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-
-      <div class="actions col-lg-2 mx-auto">
-        <%= f.submit "ログイン", class: "btn btn-sm btn-primary mx-auto my-3" %>
-      </div>
-    <% end %>
-
-    <%= render "admin/shared/links" %>
+      <%= render "admin/shared/links" %>
+    </div>
   </div>
 </div>
