@@ -18,9 +18,9 @@ class Public::CartItemsController < ApplicationController
         cart_item.item_id = cart_item_params[:item_id]
      
      #カートアイテムに追加された商品は既に入ってるものと同じか？   
-        if CartItem.find_by(item_id: params[:cart_item][:item_id]).present?
+        if CartItem.find_by(item_id: params[:cart_item][:item_id], customer_id: current_customer.id).present?
      #同じとき↓
-            cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
+            cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id], customer_id: current_customer.id)
      #元々入っていた商品の個数にparams[以下省略]の値を数字型にして加える
             cart_item.amount += params[:cart_item][:amount].to_i
      #カートアイテムを更新、リダイレクト 
