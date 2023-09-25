@@ -1,7 +1,6 @@
 <div class="container">
   <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
   <h4>注文情報入力</h4>
-  <%= render 'layouts/errors', obj: @order %>
   <h5><strong>支払い方法</strong></h5>
     <div class="row">
       <div class="col-lg-8">
@@ -29,16 +28,16 @@
       </div>
 
       <div class="col-lg-8 mx-5">
-        <%= f.radio_button :select_address, 1 %>
-        <%= f.label :select_address_1, "登録済住所から選択" %>
+        <%= f.radio_button :address_id, 1 %>
+        <%= f.label :address_id_1, "登録済住所から選択" %>
         <p class="col-lg-8 mx-5">
-          <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display), prompt: "住所を選択してください", width: "200px" %>
+          <%= f.select :address_id_1, options_from_collection_for_select(Address.all, :id, :address_display), prompt: "住所を選択してください", width: "200px" %>
         </p>
       </div>
 
       <div class="col-lg-8 mx-5">
-        <%= f.radio_button :select_address, 2 %>
-        <%= f.label :select_address_2, "新しいお届け先" %>
+        <%= f.radio_button :address_id, 2 %>
+        <%= f.label :address_id_2, "新しいお届け先" %>
       </div>
 
       <div class="col-lg-8 mx-auto">
