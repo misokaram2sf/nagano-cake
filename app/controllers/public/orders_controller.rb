@@ -27,6 +27,13 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
+
+    end
+
+    if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
+      flash.now[:notice] = "正しい住所を入力してください。"
+      render :new
+      
     end
 
     if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
@@ -74,7 +81,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:total_amount, :status, :postal_code, :address, :name, :postage, :payment_method)
+    params.require(:order).permit(:customer_id, :total_amount, :status, :postal_code, :address, :name, :postage, :payment_method)
   end
 
   def address_params
