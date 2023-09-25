@@ -1,15 +1,15 @@
 <div class="container">
   <h4>管理者ログイン</h4>
-  <div class="row">
+  <div class="row my-5 text-center">
     <%= render 'layouts/errors', obj: @admin %>
-    <div class="col-lg-8 mx-auto">
+    <div class="col-lg-12 my-3">
       <%= form_with model: @admin, url: admin_session_path do |f| %>
-        <div class="field">
-          <%= f.label :email, "メールアドレス", class: "col-10 my-2" %>
+        <div class="field my-2">
+          <%= f.label :email, "メールアドレス", class: "col-2 my-2 text-right" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@example.com", size: "40px" %>
         </div>
-        <div class="field">
-          <%= f.label :password, "パスワード", class: "col-10 my-2" %>
+        <div class="field my-2">
+          <%= f.label :password, "パスワード", class: "col-2 my-2 text-right" %>
           <%= f.password_field :password, autocomplete: "current-password", size: "40px" %>
         </div>
         <div class="actions">
