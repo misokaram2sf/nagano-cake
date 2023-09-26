@@ -3,7 +3,7 @@ class Admin::OrdersController < ApplicationController
 
   def index
     orders = Order.order("created_at desc")
-    @orders = Kaminari.paginate_array(orders).page(params[:page])
+    @orders = Kaminari.paginate_array(orders).page(params[:page]).per(10)
   end
 
   def show
