@@ -23,11 +23,13 @@
           <td>支払方法</td>
           <td><%= @order.payment_method_i18n %></td>
         </tr>
-       <%= form_with model: @order do |f| %>
+       <%= form_with model: @order, url: admin_order_path(@order) do |f| %>
         <tr>
           <td>注文ステータス</td>
-          <td><%= f.select :status, [["入金待ち", "0"], ["入金確認", "1"], ["製作中", "2"], ["発送準備中", "3"], ["発送済み", "4"]] %></td>
-          <td></td>
+          <td>
+            <%= f.select :status, [["入金待ち", "0"], ["入金確認", "1"], ["製作中", "2"], ["発送準備中", "3"], ["発送済み", "4"]] %>
+            　<%= link_to '更新', admin_order_path(@order),  class: "btn btn-sm btn-success" %>
+          </td>
         </tr>
       <% end %>
       </table>
@@ -45,7 +47,6 @@
             <th>数量</th>
             <th>小計</th>
             <th>製作ステータス</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -56,9 +57,11 @@
               <td><%= order_detail.amount %></td>
               <td><%= order_detail.subtotal %></td>
               <%= form_with model: @order_detail do |f| %>
-                <td><%= f.select :make_status, [["Order.payment_methods_i18n[:production_not_possible]", "0"], ["Order.payment_methods_i18n[:production_pending]", "1"], ["Order.payment_methods_i18n[:in_production]", "2"], ["Order.payment_methods_i18n[:production_complete]", "3"]] %></td>
+                <td>
+                  <%= f.select :make_status, [["着手不可", "0"], ["製作待ち", "1"], ["制作中", "2"], ["製作完了", "3"]] %>
+                  　<%= link_to '更新', admin_order_path(@order), class: "btn btn-sm btn-success" %>
+                </td>
               <% end %>
-              <td></td>
             </tr>
         　<% end %>
         </tbody>
