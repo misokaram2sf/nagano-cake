@@ -16,10 +16,20 @@
        <p><%= @item.introduction %></p>
        <h5><%= @item.with_tax_price.to_s(:delimited) %>円(税込)</h5>
        <!--数量選択・カートへ入れる-->
-       <%= form_with model: @cart_item,url: cart_items_path, method: :post, local:true do |f| %>
-           <%= f.hidden_field :item_id, :value => @item.id %>
-           <%= f.select :amount, *[1..10] %>
-           <%= f.submit "カートに入れる", class: "btn btn-success" %>
+       <% if @item.is_active == true %>
+       
+           <%= form_with model: @cart_item,url: cart_items_path, method: :post, local:true do |f| %>
+               <%= f.hidden_field :item_id, :value => @item.id %>
+               <%= f.select :amount, *[1..10] %></br>
+               <div class="py-3">
+               <%= f.submit "カートに入れる", class: "btn btn-outline-danger" %>
+               </div>
+           <% end %>
+           
+       <% else %>
+       
+       <p class="py-3 text-danger">販売停止中</p>
+       
        <% end %>
 
     </div>
