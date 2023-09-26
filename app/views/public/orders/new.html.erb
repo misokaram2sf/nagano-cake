@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container my-5">
   <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
   <h4>注文情報入力</h4>
   <%= render 'layouts/errors', obj: @order %>
   <h5><strong>支払い方法</strong></h5>
-    <div class="row">
+    <div class="row my-3">
       <div class="col-lg-8">
         <p class="col-lg-8 mx-5">
           <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
@@ -16,7 +16,7 @@
     </div>
 
     <h5><strong>お届け先</strong></h5>
-    <div class="row">
+    <div class="row my-3">
       <div class="col-lg-8 mx-5">
         <tr>
           <%= f.radio_button :select_address, 0, checked: true %>
