@@ -2,7 +2,8 @@ class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @orders = Order.all
+    orders = Order.order("created_at desc")
+    @orders = Kaminari.paginate_array(orders).page(params[:page])
   end
 
   def show
