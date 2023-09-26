@@ -12,18 +12,18 @@
           </div>
         </div>
       </div>
-    </div>  
-  </main>      
-  
+    </div>
+  </main>
+
   <div class="row col-12 mx-auto mt-5">
     <div class="sidebar col-4 ">
-      
+      <%= render "public/genres/genre", genres: @genres %>
     </div>
-    
-        
+
+
     <div class="new-items-aria col-7">
       <h4 class="new-items-title">\New Items/</h4>
-      
+
       <div class="new-items row row-cols-1 row-cols-lg-4 mx-auto p-2">
       <% @new_items.each do |item| %>
       <div class="item card-list-container col m-0.5" >
@@ -34,11 +34,11 @@
         <% end %>
       </div>
       <% end %>
-      
+
       <div class="items">
         <%= link_to "もっと見る>>", items_path, class: "text-dark" %>
       </div>
       </div>
-    </div>  
-  </div>  
-  
+    </div>
+  </div>
+

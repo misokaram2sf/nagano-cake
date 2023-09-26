@@ -1,0 +1,10 @@
+<table class="table table-hover table-inverse">
+  <tr>
+    <th class="table-danger">ジャンル検索</th>
+  </tr>
+  <% genres.each do |genre| %>
+    <tr>
+      <td><%= link_to genre.name, genre_path(genre) %> </td>
+    </tr>
+  <% end %>
+</table>

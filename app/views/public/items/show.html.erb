@@ -1,14 +1,16 @@
 <div class="container py-5 my-5">
     <div class="row">
-    
-    <div class="sidebar col-4"></div>
-    
+
+    <div class="sidebar col-3">
+      <%= render "public/genres/genre", genres: @genres %>
+    </div>
+
     <div class="item row c0l-7 align-items-center", style="height:500px;">
-      
+
       <div class="p-2">
        <%= image_tag @item.get_image, size: "500x350", class: "item-image", style: "object-fit: cover;" %>
       </div>
-      
+
       <div class="p-3">
        <h4><%= @item.name %></h4>
        <p><%= @item.introduction %></p>
@@ -19,15 +21,15 @@
            <%= f.select :amount, *[1..10] %>
            <%= f.submit "カートに入れる", class: "btn btn-success" %>
        <% end %>
-       
-    </div>   
-         
-       
 
-       
-       
+    </div>
+
+
+
+
+
       </div>
-      
+
     </div>
 </div>
 
