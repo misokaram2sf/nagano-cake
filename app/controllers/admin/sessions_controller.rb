@@ -7,7 +7,7 @@ class Admin::SessionsController < Devise::SessionsController
   #   super
   # end
   def after_sign_in_path_for(resource)
-    admin_path
+    admin_orders_path
   end
   # POST /resource/sign_in
   # def create
