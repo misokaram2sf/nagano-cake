@@ -1,5 +1,11 @@
 <div class="container">
-  <h4><%= @customer.full_name %>さんの会員詳細</h4>
+
+  <div class="row">
+    <div class="m-4">
+      <h4><%= @customer.full_name %>さんの会員詳細</h4>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-lg-8 mx-auto">
       <table class="table table-borderless">
@@ -47,8 +53,8 @@
         </tr>
         <tr>
           <td></td>
-          <td><%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-success" %></td>
-          <td><%= link_to '注文履歴一覧を見る', admin_orders_path, class: "btn btn-primary" %></td>
+          <td><%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-outline-danger" %></td>
+          <td><%= link_to '注文履歴一覧を見る', admin_orders_path, class: "btn btn-outline-danger" %></td>
         </tr>
       </table>
     </div>

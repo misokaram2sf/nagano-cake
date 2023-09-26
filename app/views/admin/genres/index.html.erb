@@ -1,5 +1,11 @@
 <div class="container">
-  <h4>ジャンル一覧・追加</h4>
+
+  <div class="row">
+    <div class="m-4">
+      <h4>ジャンル一覧・追加</h4>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-lg-12 mt-3">
       <%= render 'layouts/errors', obj: @genre %>
@@ -18,7 +24,7 @@
             <% @genres.each do |genre| %>
               <tr>
                 <td><%= genre.name %></td>
-                <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-sm btn-success" %></td>
+                <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-sm btn-outline-danger" %></td>
               </tr>
             <% end %>
         </tbody>
