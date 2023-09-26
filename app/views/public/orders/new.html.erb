@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-lg-8 mx-5">
         <tr>
-          <%= f.radio_button :select_address, 0 %>
+          <%= f.radio_button :select_address, 0, checked: true %>
           <%= f.label :select_address_0, "ご自身の住所" %>
           <P class="col-lg-8 mx-5">
             <%= "〒" + current_customer.postal_code + " " + current_customer.address %>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="col-lg-2 mx-auto my-4">
-      <%= f.submit "確認画面に進む", class: "btn btn-success" %>
+      <%= f.submit "確認画面に進む", class: "btn btn-outline-danger" %>
     </div>
     <% end %>
 </div>

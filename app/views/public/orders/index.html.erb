@@ -4,12 +4,12 @@
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
-          <th>注文日</th>
-          <th class="delivery-address">配送先</th>
-          <th>注文商品</th>
-          <th>支払金額</th>
-          <th>ステータス</th>
-          <th>注文詳細</th>
+          <th class="table-danger">注文日</th>
+          <th class="table-danger">配送先</th>
+          <th class="table-danger">注文商品</th>
+          <th class="table-danger">支払金額</th>
+          <th class="table-danger">ステータス</th>
+          <th class="table-danger">注文詳細</th>
         </tr>
       </thead>
       <tbody>
@@ -31,11 +31,12 @@
             <td><%= order.total_amount.to_s(:delimited) %>円</td>
             <td><%= t("enums.order.order_status.#{order.status_i18n}") %></td>
             <td>
-              <%= link_to "詳細", order_path(order), class: "btn btn-primary btn-sm elegant-btn-danger" %>
+              <%= link_to "詳細", order_path(order), class: "btn btn-outline-danger btn-sm elegant-btn-danger" %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
+    <%= paginate @orders %>
   </div>
 </div>

@@ -5,7 +5,7 @@
       <table class="table table-brdered mx-auto my-3">
 
         <thead>
-          <tr>
+          <tr class="table-danger">
             <th>商品情報</th>
             <th>単価（税込）</th>
             <th>数量</th>
@@ -33,7 +33,7 @@
     <div class="col-lg-3 mx-auto">
       <table class="table table-bordered mx-auto my-4">
         <tr>
-          <th>送料</th>
+          <th class="table-danger">送料</th>
           <td><%= @order.postage %></td>
         </tr>
         <tr>
@@ -41,7 +41,7 @@
           <td><%= @total.to_s(:delimited) %></td>
         </tr>
         <tr>
-          <th>請求金額</th>
+          <th class="table-danger">請求金額</th>
           <td><%= @total_pay.to_s(:delimited) %></td>
         </tr>
       </table>
@@ -76,7 +76,7 @@
         <%= f.hidden_field :payment_method, :value => @order.payment_method %>
         <%= f.hidden_field :postage, :value => @order.postage %>
 
-        <%= f.submit "注文を確定する", class: "btn btn-success" %>
+        <%= f.submit "注文を確定する", class: "btn btn-outline-danger" %>
       <% end %>
     </div>
   </div>

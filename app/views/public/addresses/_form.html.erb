@@ -6,37 +6,37 @@
             <td class="col-lg-2"><!--登録するもの--><br></td>
             <td class="col-lg-6"><!--入力欄--><br></td>
             <td class="col-lg-1"><!--登録ボタン--><br></td>
-          </tr>    
+          </tr>
           </thead>
           <tbody>
-              
+
               <tr>
                 <td>郵便番号(ハイフンなし)</td>
                 <td><%= f.text_field :postal_code, class: "form-control col-lg-5", placeholder: "0000000" %> </td>
                 <td></td>
               </tr>
-              
+
               <tr>
                 <td>住所</td>
                 <td><%= f.text_field :address, class: "form-control ", placeholder: "東京都渋谷区〇〇〇◯" %></td>
                 <td></td>
               </tr>
-              
+
               <tr>
                 <td>宛名</td>
                 <td><%= f.text_field :name, class:"form-control col-lg-5", placeholder: "田中花子" %></td>
                 <td></td>
               </tr>
-              
+
               <tr>
                 <td></td>
                 <td></td>
                 <td>
                     <% if current_page?(addresses_path) %>
-                      <%= f.submit '新規登録', class: "btn btn-success" %>
+                      <%= f.submit '新規登録', class: "btn btn-outline-danger" %>
                     <% else %>
-                      <%= f.submit '変更内容を保存', class: "btn btn-success" %>
-                    
+                      <%= f.submit '変更内容を保存', class: "btn btn-outline-danger" %>
+
                     </td>
               </tr>
               <% end %>

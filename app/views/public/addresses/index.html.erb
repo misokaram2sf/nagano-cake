@@ -10,10 +10,10 @@
       <table class="table table-borderd">
         <thead class="bg-light">
           <tr>
-            <th>郵便番号</th>
-            <th>住所</th>
-            <th>宛名</th>
-            <th><br></th>
+            <th class="table-danger">郵便番号</th>
+            <th class="table-danger">住所</th>
+            <th class="table-danger">宛名</th>
+            <th class="table-danger"><br></th>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
             <td><%= address.address %></td>
             <td><%= address.name %></td>
             <td>
-                <%= link_to "編集する", edit_address_path(address), class: "btn btn-success" %>
+                <%= link_to "編集する", edit_address_path(address), class: "btn btn-outline-danger" %>
                 <%= link_to "削除する", address_path(address), method: :delete, "data-confirm" => "配送先を削除しますか?", class: "btn btn-danger" %>
             </td>
           </tr>

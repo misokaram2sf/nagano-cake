@@ -3,7 +3,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    
+
   end
 
   def confirm
@@ -29,7 +29,7 @@ class Public::OrdersController < ApplicationController
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
     end
-    
+
     if @order.postal_code.blank? || @order.address.blank? || @order.name.blank?
       flash.now[:notice] = "正しい住所を入力してください。"
       render :new
@@ -62,8 +62,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders.order("created_at desc")
-    @genres = Genre.all
+    orders = current_customer.orders.order("created_at desc")
+    @orders = Kaminari.paginate_array(orders).page(params[:page])
   end
 
   def show
