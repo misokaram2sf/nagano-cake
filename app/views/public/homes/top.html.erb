@@ -4,7 +4,7 @@
     <div class="container-fluid full">
       <div class="">
         <div class="mx-auto py-5 col-11 col-sm-10 col-lg-8 col-xl-6 text-light">
-        <h1>Welcom to <span class="shop-name">Nagano C<span class="red">a</span>ke</span></h1>
+        <h1>Welcome to <span class="shop-name">Nagano C<span class="red">a</span>ke</span></h1>
           <div class="main-visual-text">
           <p>このサイトは、ケーキ販売のECサイトになります。</p>
           <p>会員でない方も商品の閲覧はできますが、</p>
@@ -34,6 +34,10 @@
         <% end %>
       </div>
       <% end %>
+      
+      <div class="items">
+        <%= link_to "もっと見る>>", items_path, class: "text-dark" %>
+      </div>
       </div>
     </div>  
   </div>  
