@@ -1,14 +1,18 @@
-<div class="container mt-5">
+<div class="container py-5 my-5">
     <div class="row">
+    
+    <div class="sidebar col-4"></div>
+    
+    <div class="item row c0l-7 align-items-center", style="height:500px;">
       
-      <div>
-       <%= image_tag @item.get_image, size: "360x270", class: "item-image" %>
+      <div class="p-2">
+       <%= image_tag @item.get_image, size: "500x350", class: "item-image", style: "object-fit: cover;" %>
       </div>
       
-      <div>
-       <p><%= @item.name %></p>
+      <div class="p-3">
+       <h4><%= @item.name %></h4>
        <p><%= @item.introduction %></p>
-       <p class="fs-5"><%= @item.with_tax_price.to_s(:delimited) %>円(税込)</p>
+       <h5><%= @item.with_tax_price.to_s(:delimited) %>円(税込)</h5>
        <!--数量選択・カートへ入れる-->
        <%= form_with model: @cart_item,url: cart_items_path, method: :post, local:true do |f| %>
            <%= f.hidden_field :item_id, :value => @item.id %>
@@ -16,7 +20,7 @@
            <%= f.submit "カートに入れる", class: "btn btn-success" %>
        <% end %>
        
-       
+    </div>   
          
        
 
