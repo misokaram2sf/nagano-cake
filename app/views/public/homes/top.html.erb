@@ -29,14 +29,16 @@
       <div class="item card-list-container col m-0.5" >
         <%= link_to item_path(item.id) do %>
           <%= image_tag item.get_image, size:"200x150", class: "card-img-top", style: "object-fit: cover;" %>
-          <h6 class="card-title text-dark"><%= item.name %></h6>
+          <h6 class="card-title text-dark" style="height:30px;"><%= item.name %></h6>
           <p class="card-text text-dark"><%= item.with_tax_price.to_s(:delimited) %>円</p>
         <% end %>
       </div>
       <% end %>
 
       <div class="items">
-        <%= link_to "もっと見る>>", items_path, class: "text-dark" %>
+        <div style="height:150px;"></div>
+        <div style="height:30px;"></div>
+        <%= link_to "もっと見る>>", items_path, class: "text-dark align-items-end" %>
       </div>
       </div>
     </div>
