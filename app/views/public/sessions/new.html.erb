@@ -6,7 +6,9 @@
 
       <h4>ログイン</h4>
 
+
        <h7>会員の方はこちらからログイン</h7>
+
 
 
          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -31,7 +33,7 @@
 
         <tr class="actions">
           <td>
-          <%= f.submit "ログイン", class:"btn btn-primary ml-3" %>
+          <%= f.submit "ログイン", class:"btn btn-outline-danger ml-3" %>
           </td>
         </tr>
         </table>
