@@ -29,16 +29,15 @@
           <td>支払方法</td>
           <td><%= @order.payment_method_i18n %></td>
         </tr>
-       <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
         <tr>
           <td>注文ステータス</td>
           <td>
-            <%#= f.select :status, [["入金待ち", 0], ["入金確認", 1], ["製作中", 2], ["発送準備中", 3], ["発送済み", 4]] %>
-            <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
-            　<%= f.submit '更新', class: "btn btn-sm btn-outline-danger" %>
+            <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
+              <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
+              <%= f.submit '更新', class: "btn btn-sm btn-outline-danger" %>
+            <% end %>
           </td>
         </tr>
-      <% end %>
       </table>
     </div>
   </div>
@@ -63,13 +62,12 @@
               <td><%= order_detail.unit_price %></td>
               <td><%= order_detail.amount %></td>
               <td><%= order_detail.subtotal %></td>
-              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
                 <td>
-                  <%#= f.select :make_status, [["着手不可", 0], ["製作待ち", 1], ["制作中", 2], ["製作完了", 3]] %>
+                  <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch do |f| %>
                   <%= f.select :make_status, OrderDetail.make_statuses.keys.map {|k| [I18n.t("enums.order_detail.make_status.#{k}"), k]} %>
                   　<%= f.submit '更新',  class: "btn btn-sm btn-outline-danger" %>
+                  <% end %>
                 </td>
-              <% end %>
             </tr>
         　<% end %>
         </tbody>
