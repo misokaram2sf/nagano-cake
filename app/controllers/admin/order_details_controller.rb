@@ -6,17 +6,12 @@ class Admin::OrderDetailsController < ApplicationController
     @order = @order_detail.order
     @order_details = @order.order_details
     @order_detail.update(order_detail_params)
-
-
-
-    @order.order_details.each do |order_deatail|
-     if @order_detail.make_status == 2
+    @order.order_details.each do |order_detail|
+     if @order_detail.make_status == "in_production"
         @order.update(status:2)
-     break
+        break
      end
    end
-
-
 
     if @order.order_details.where( make_status: 3 ).count == @order.order_details.count
        @order.update(status:3)
