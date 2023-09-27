@@ -14,6 +14,7 @@
             <th>購入日時</th>
             <th>購入者</th>
             <th>注文個数</th>
+            <th>注文ステータス</th>
           </tr>
           <tbody>
             <% @orders.each do |order| %>
@@ -25,6 +26,7 @@
                 </td>
                 <td><%= order.customer.last_name + order.customer.first_name %></td>
                 <td><%= order.order_details.sum(:amount) %></td>
+                <td><%= t("enums.order.order_status.#{order.status_i18n}") %></td>
               </tr>
             <% end %>
           </tbody>
