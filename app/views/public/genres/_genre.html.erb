@@ -1,0 +1,13 @@
+
+<div class="col-8 mx-auto">
+<table class="table table-borderless">
+  <tr class="text-center">
+    <td class="table-danger">Jenres</td>
+  </tr>
+  <% genres.each do |genre| %>
+    <tr class="text-center">
+      <td><%= link_to genre.name, genre_path(genre),class: "text-dark" %> </td>
+    </tr>
+  <% end %>
+</table>
+</div>

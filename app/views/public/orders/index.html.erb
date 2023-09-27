@@ -1,0 +1,42 @@
+<div class="container my-5">
+  <h4 class="elegant-header">注文履歴一覧</h4>
+  <div class="order-history-container mb-5">
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th class="table-danger">注文日</th>
+          <th class="table-danger">配送先</th>
+          <th class="table-danger">注文商品</th>
+          <th class="table-danger">支払金額</th>
+          <th class="table-danger">ステータス</th>
+          <th class="table-danger">注文詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td>
+                <%= l order.created_at, format: :short %>
+            </td>
+            <td class="delivery-address">
+              〒<%= order.customer.postal_code %><br>
+              <%= order.address %><br>
+              <%= order.customer.full_name %>
+            </td>
+            <td>
+              <% order.order_details.each do |order_detail| %>
+                <%= order_detail.item.name %>
+              <% end %>
+            </td>
+            <td><%= order.total_amount.to_s(:delimited) %>円</td>
+            <td><%= t("enums.order.order_status.#{order.status_i18n}") %></td>
+            <td>
+              <%= link_to "詳細", order_path(order), class: "btn btn-outline-danger btn-sm elegant-btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @orders %>
+  </div>
+</div>

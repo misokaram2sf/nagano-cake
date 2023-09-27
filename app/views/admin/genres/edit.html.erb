@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div class="row">
+    <div class="m-4">
+      <h4>ジャンル編集</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= render 'layouts/errors', obj: @genre %>
+    <div class="col-lg-8 m-3">
+      <%= form_with model: @genre, url: admin_genre_path do |f| %>
+        <%= f.label :ジャンル名 %>
+        <%= f.text_field :name, placeholder: "ジャンル名", class: "m-5" %>
+        <%= f.submit "変更を保存", class: "btn btn-outline-danger mx-auto" %>
+      <% end %>
+    </div>
+  </div>
+</div>

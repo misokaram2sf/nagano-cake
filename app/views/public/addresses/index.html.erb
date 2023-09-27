@@ -1,0 +1,35 @@
+<div class="container my-5">
+  <h4>配送先登録/一覧</h4>
+
+<!--配送先登録-->
+
+    <%= render 'form', address: @address %>
+
+<!--配送先一覧-->
+    <div>
+      <table class="table table-borderd">
+        <thead class="bg-light">
+          <tr>
+            <th class="table-danger">郵便番号</th>
+            <th class="table-danger">住所</th>
+            <th class="table-danger">宛名</th>
+            <th class="table-danger"><br></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @addresses.each do |address| %>
+          <tr>
+            <td><%= address.postal_code %></td>
+            <td><%= address.address %></td>
+            <td><%= address.name %></td>
+            <td>
+                <%= link_to "編集する", edit_address_path(address), class: "btn btn-outline-danger" %>
+                <%= link_to "削除する", address_path(address), method: :delete, "data-confirm" => "配送先を削除しますか?", class: "btn btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+</div>

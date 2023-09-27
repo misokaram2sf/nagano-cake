@@ -1,0 +1,81 @@
+@use '~bootstrap/scss/bootstrap';
+/*@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&family=Zen+Maru+Gothic:wght@300&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=M+PLUS+Rounded+1c:wght@300&family=Major+Mono+Display&family=Zen+Kurenaido&family=Zen+Maru+Gothic:wght@300&display=swap');
+
+header{
+  background-color:#f0c0c0;
+}
+
+
+.container-fluid.full {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  background-image: url('../images/main-visual.jpg');
+  background-size: cover;
+}
+
+.full::before {
+  content: "";
+  position: absolute;
+  top: 0;  bottom: 0;
+  left: 0;  right: 0;
+  background-color: #8d6449;
+  opacity: 0.4;
+}
+
+/*.main-visual-text{
+  font-family: 'Zen Kurenaido';
+}*/
+
+.shop-name{
+  font-family: 'Major Mono Display', monospace;
+}
+
+.red{
+  color: red;
+}
+
+.about-title{
+  font-family: 'Major Mono Display', monospace;
+  color:#ffc0cb;
+}
+
+.about-visual{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../images/about.jpg');
+  background-size: cover;
+  
+}
+
+.about-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;  bottom: 0;
+  left: 0;  right: 0;
+  background-color: #8d6449;
+  opacity: 0.4;
+}
+
+
+/*ページネーション　デザイン変更*/
+
+.pagination {
+  justify-content: center;
+}
+
+.pagination>li>a {          
+  border: none;     
+  color: #696969;   
+}
+
+.page-item.active .page-link{     
+  background-color: #ffb6c1;     
+  border-radius: 15px;     
+}
+
+.pagination>li>a:hover {        
+  border-radius: 15px;   
+}
